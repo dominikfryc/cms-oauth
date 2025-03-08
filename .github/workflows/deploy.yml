@@ -1,11 +1,14 @@
 # Allow deploying the project to Cloudflare Workers
 # https://developers.cloudflare.com/workers/tutorials/deploy-button/
 
-name: Build
+name: Deploy
 on:
-  repository_dispatch:
+  push:
+    branches:
+      - main
 jobs:
   deploy:
+    name: Deploy
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the branch
